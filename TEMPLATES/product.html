@@ -1,0 +1,291 @@
+<!doctype html>
+<html class="no-js" lang="en">
+{% load static %}
+
+<!-- Mirrored from template.hasthemes.com/toro/toro/shop-collection-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Dec 2021 19:33:14 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>MOTHERNATURE</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.png' %}">
+
+    <!-- All CSS is here
+	============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/bootstrap.min.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/dlicon.css' %}">
+    <!-- Others CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/owl-carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/jarallax.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/easyzoom.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/fullpage.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+</head>
+
+<body>
+<header>
+    <div>
+
+
+            <div class="header-bottom">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo logo-width">
+                                <a href="{% url 'index' %}">
+                                     <img src="{% static 'assets/images/logo/logo1.png' %}" alt="logo">
+                                </a>
+                            </div>
+                        </div>
+                       <div class="col-xl-6 col-lg-8 d-flex justify-content-center position-static">
+                            <div class="main-menu menu-lh-1 main-menu-light-black menu-padding-li-none menu-padding-a main-menu-border-none">
+                                <nav>
+                                    <ul>
+                                        <li><a href="{% url 'index' %}">Home</a></li>
+                                        <li><a href="{% url 'index' %}">category</a>
+                                            <ul class="sub-menu-width">
+                                                {% for cat in Category %}
+                                                <li><a href="/product/{{cat.id}}">{{cat.categoryname}}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                        <li><a href="{% url  'gallery' %}">Gallery</a></li>
+                                        {% if request.user.is_authenticated %}
+                                        <li><a href="#">Account</a>
+                                            <ul class="sub-menu-width">
+                                                <li><a href="{% url  'profile' %}">Profile</a></li>
+                                                <li><a href="{% url  'order' %}">Order</a></li>
+                                                <li><a href="{% url  'addtocart' %}">Shopping cart</a></li>
+                                                 <li><a href="{% url  'checkout1' %}">Check out </a></li>
+                                                 <li><a href="{% url 'logout' %}">Logout </a></li>
+
+
+                                            </ul>
+                                        </li>
+                                        {% else %}
+
+                                        <li><a href="{% url  'login' %}">login</a></li>
+                                         <li><a href="{% url  'registration' %}">registeration</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-2">
+
+                                <div class="same-style cart-wrap">
+                                    <a href="#" class="cart-active">
+                                        <i class="dlicon shopping_bag-20"></i>
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- search start -->
+
+        <!-- mini cart start -->
+        <div class="sidebar-cart-active">
+            <div class="sidebar-cart-all">
+                <a class="cart-close" href="#"><i class="dlicon ui-1_simple-remove"></i></a>
+                <div class="cart-content">
+                    <h3>Shopping Cart</h3>
+                    <ul>
+                        <li class="single-product-cart">
+                            <div class="cart-img">
+                                <a href="#"><img src="{% static 'assets/images/cart/cart-1.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">Bejewelled velvet sandals</a></h4>
+                                <span> 1 × $49.00	</span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                        <li class="single-product-cart">
+                            <div class="cart-img">
+                                <a href="#"><img src="{% static 'assets/images/cart/cart-2.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">Contrast faux fur jacket</a></h4>
+                                <span> 1 × $49.00	</span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cart-total">
+                        <h4>Subtotal: <span>$170.00</span></h4>
+                    </div>
+                    <div class="cart-checkout-btn">
+                        <a class="btn-hover cart-btn-style" href="{% url 'addtocart' %}">view cart</a>
+                        <a class="no-mrg btn-hover cart-btn-style" href="{% url 'checkout1' %}">checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- aside start -->
+
+                            <!-- mobile menu start -->
+
+                                <!-- mobile menu navigation start -->
+                               <div class="header-aside-active">
+            <div class="header-aside-wrap">
+                <a class="aside-close"><i class="dlicon ui-1_simple-remove"></i></a>
+                <div class="header-aside-content">
+                    <div class="mobile-menu-area">
+                        <div class="mobile-search">
+                            <form class="search-form" action="#">
+                                <input type="text" placeholder="Search entire store…">
+                                <button class="button-search"><i class="dlicon ui-1_zoom"></i></button>
+                            </form>
+                        </div>
+                        <div class="mobile-menu-wrap">
+                            <!-- mobile menu start -->
+                            <div class="mobile-navigation">
+                                <!-- mobile menu navigation start -->
+                                <nav>
+
+                                </nav>
+                                <!-- mobile menu navigation end -->
+                            </div>
+                            <!-- mobile menu end -->
+                        </div>
+                        <div class="mobile-curr-lang-wrap">
+                            <div class="single-mobile-curr-lang">
+                                <a class="mobile-language-active" href="#">Language <i class="fa fa-angle-down"></i></a>
+                                <div class="lang-curr-dropdown lang-dropdown-active">
+
+
+                                </div>
+                            </div>
+                            <div class="single-mobile-curr-lang">
+                                <a class="mobile-currency-active" href="#">Currency <i class="fa fa-angle-down"></i></a>
+                                <div class="lang-curr-dropdown curr-dropdown-active">
+
+
+                                </div>
+                            </div>
+                            <div class="single-mobile-curr-lang">
+                                <a class="mobile-account-active" href="#">My Account <i class="fa fa-angle-down"></i></a>
+                                <div class="lang-curr-dropdown account-dropdown-active">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-aside-menu">
+                        <nav>
+
+
+                        </nav>
+                    </div>
+
+                    <div class="aside-contact-info">
+
+
+                    </div>
+                    <div class="social-icon-style mb-25">
+
+
+                    </div>
+                    <div class="copyright">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+              <div class="breadcrumb-area section-padding-1 bg-gray breadcrumb-ptb-2">
+            <div class="container-fluid">
+                <div class="breadcrumb-content text-center">
+                    <div class="breadcrumb-title">
+                        <h2>{{cat_details.categoryname}}</h2>
+                        <ul>
+                            <li>
+                                <a href="{% url 'index' %}">Category</a>
+                            </li>
+                            <li><span> > </span></li>
+                             <li>
+                                <a href="{% url 'index' %}">{{cat_details.categoryname}}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="shop-area section-padding-1 pt-100 pb-70">
+            <div class="container-fluid">
+                <div class="shop-collection-area pb-70">
+                    <div class="shop-collection-title text-center">
+               <!--     <h3>{{cat_details.categoryname}}</h3> -->
+                    </div>
+                    <div class="row">
+                        {% for i in prod %}
+                    <div class="custom-col-5">
+                        <div class="product-wrap mb-50">
+                            <div class="product-img default-overlay mb-25">
+                                <a href="/pdetails/{{i.id}}">
+                                    <img class="default-img" src="{{i.image.url}}" alt="">
+                                </a>
+                                <div class="product-action product-action-sky product-action-position-1">
+
+                                    <a href="?product_id={{i.id}}" type="button" title="Add to Cart" id="add-to-cart"><i class="fa fa-shopping-cart"></i><span>Add to Cart</span></a>
+
+                                </div>
+                            </div>
+                            <div class="product-content-4 product-content-sky title-font-width-400 text-center">
+                                <h3><a href="/pdetails/{{i.id}}">{{i.productname}}</a></h3>
+                                <div class="product-price product-price-red">
+                                    <span class="new-price">&#8377;{{i.productprice}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </div>
+
+
+
+<!--<script type="text/javascript">-->
+<!--   $(document).on("click","#add-to-cart", function(){-->
+
+<!--      var id = $("#add-to-cart").attr("data-id");-->
+<!--      $.ajax({-->
+<!--        url: "/addtocart",-->
+<!--        type: 'GET',-->
+<!--        data:{-->
+<!--          'product_id':id,-->
+<!--        },-->
+<!--        success: function(response) {-->
+
+<!--          -->
+<!--        }-->
+<!--    });-->
+<!--   });-->
+<!--</script>-->
+<!-- Mirrored from template.hasthemes.com/toro/toro/shop-collection-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Dec 2021 19:33:17 GMT -->
+</html>

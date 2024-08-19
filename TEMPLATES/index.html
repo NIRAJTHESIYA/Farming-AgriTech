@@ -1,0 +1,427 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+{% load static %}
+<!-- Mirrored from template.hasthemes.com/toro/toro/{% url  'index' %}.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Dec 2021 19:32:01 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>MOTHERNATURE</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.png' %}">
+
+    <!-- All CSS is here
+	============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/bootstrap.min.css' %}">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/vendor/dlicon.css' %}">
+    <!-- Others CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/owl-carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/jarallax.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/easyzoom.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/fullpage.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugins/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+</head>
+
+<body>
+<header>
+    <div>
+
+            <div class="header-bottom">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo logo-width">
+                                <a href="{% url  'index' %}">
+                                    <img src="{% static 'assets/images/logo/logo1.png' %}" alt="logo">
+                                </a>
+                            </div>
+                        </div>
+                       <div class="col-xl-6 col-lg-8 d-flex justify-content-center position-static">
+                            <div class="main-menu menu-lh-1 main-menu-light-black menu-padding-li-none menu-padding-a main-menu-border-none">
+                                <nav>
+                                    <ul>
+                                        <li><a href="{% url  'index' %}">Home</a></li>
+
+
+                                        <li><a href="{% url  'index' %}">category</a>
+
+                                            <ul class="sub-menu-width">
+                                                {% for cat in Category %}
+                                                <li><a href="/product/{{cat.id}}">{{cat.categoryname}}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                        <li><a href="{% url  'gallery' %}">Gallery</a></li>
+                                        {% if request.user.is_authenticated %}
+                                        <li><a href="#">Account</a>
+                                            <ul class="sub-menu-width">
+                                                <li><a href="{% url  'profile' %}">Profile</a></li>
+                                                <li><a href="{% url  'order' %}">Order</a></li>
+                                                <li><a href="{% url  'addtocart' %}">Shopping cart</a></li>
+                                                 <li><a href="{% url  'checkout1' %}">Check out </a></li>
+                                                <li><a href="{% url  'changepw' %}">Change password </a></li>
+                                                 <li><a href="{% url 'logout' %}">Logout </a></li>
+                                            </ul>
+                                        </li>
+                                        {% else %}
+                                        <li><a href="{% url  'login' %}">login</a></li>
+                                         <li><a href="{% url  'registration' %}">registeration</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </nav>
+                            </div>
+                       </div>
+                             <div class="col-xl-3 col-lg-2">
+                                <div class="same-style cart-wrap">
+                                    <a href="{% url 'addtocart' %}">
+                                        <i class="dlicon shopping_bag-20"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- search start -->
+
+        <!-- mini cart start -->
+        <div class="sidebar-cart-active">
+            <div class="sidebar-cart-all">
+                <a class="cart-close" href="#"><i class="dlicon ui-1_simple-remove"></i></a>
+                <div class="cart-content">
+                    <h3>Shopping Cart</h3>
+                    <ul>
+                        <li class="single-product-cart">
+                            <div class="cart-img">
+                                <a href="#"><img src="{% static 'assets/images/cart/cart-1.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">Bejewelled velvet sandals</a></h4>
+                                <span> 1 × $49.00	</span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                        <li class="single-product-cart">
+                            <div class="cart-img">
+                                <a href="#"><img src="{% static 'assets/images/cart/cart-2.jpg' %}" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">Contrast faux fur jacket</a></h4>
+                                <span> 1 × $49.00	</span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cart-total">
+                        <h4>Subtotal: <span>$170.00</span></h4>
+                    </div>
+                    <div class="cart-checkout-btn">
+                        <a class="btn-hover cart-btn-style" href="{% url  'addtocart' %}">view cart</a>
+                        <a class="no-mrg btn-hover cart-btn-style" href="{% url  'checkout1' %}">checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- aside start -->
+
+                            <!-- mobile menu start -->
+
+                                <!-- mobile menu navigation start -->
+                               <div class="header-aside-active">
+            <div class="header-aside-wrap">
+                <a class="aside-close"><i class="dlicon ui-1_simple-remove"></i></a>
+                <div class="header-aside-content">
+                    <div class="mobile-menu-area">
+                        <div class="mobile-search">
+                            <form class="search-form" action="#">
+                                <input type="text" placeholder="Search entire store…">
+                                <button class="button-search"><i class="dlicon ui-1_zoom"></i></button>
+                            </form>
+                        </div>
+                        <div class="mobile-menu-wrap">
+                            <!-- mobile menu start -->
+                            <div class="mobile-navigation">
+                                <!-- mobile menu navigation start -->
+                                <nav>
+
+                                </nav>
+                                <!-- mobile menu navigation end -->
+                            </div>
+                            <!-- mobile menu end -->
+                        </div>
+                        <div class="mobile-curr-lang-wrap">
+                            <div class="single-mobile-curr-lang">
+                                <a class="mobile-language-active" href="#">Language <i class="fa fa-angle-down"></i></a>
+                                <div class="lang-curr-dropdown lang-dropdown-active">
+
+                                </div>
+                            </div>
+                            <div class="single-mobile-curr-lang">
+                                <a class="mobile-currency-active" href="#">Currency <i class="fa fa-angle-down"></i></a>
+                                <div class="lang-curr-dropdown curr-dropdown-active">
+                                    <ul>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="single-mobile-curr-lang">
+                                <a class="mobile-account-active" href="#">My Account <i class="fa fa-angle-down"></i></a>
+                                <div class="lang-curr-dropdown account-dropdown-active">
+                                    <ul>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-aside-menu">
+                        <nav>
+
+                        </nav>
+                    </div>
+
+                    <div class="aside-contact-info">
+
+                    </div>
+                    <div class="social-icon-style mb-25">
+                    </div>
+                    </div>
+                    <div class="copyright">
+
+                </div>
+            </div>
+        </div>
+        <div class="slider-area">
+            <div class="container-fluid p-0">
+                <div class="main-slider-active-3 owl-carousel slider-dot-position-3 slider-dot-style-2">
+                    <div class="single-main-slider slider-animated-1 bg-img slider-height-hm11 align-items-center custom-d-flex" style="background-image:url({% static 'assets/images/slider/s2.jpg' %});">
+                        <div class="row g-0 width-100-percent">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="main-slider-content-11-1 text-center">
+                                    <h1 class="animated">MotherNature </h1>
+                                    <div class="slider-btn-2 slider-btn-2-border-white">
+                                        <a class="animated" href="{% url  'gallery' %}">Discover </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-main-slider slider-animated-1 bg-img slider-height-hm11 align-items-center custom-d-flex" style="background-image:url({% static 'assets/images/slider/s1.jpg' %});">
+                        <div class="row g-0 width-100-percent">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="main-slider-content-11-1 text-center">
+                                    <h1 class="animated">MotherNature </h1>
+                                    <div class="slider-btn-2 slider-btn-2-border-white">
+                                        <a class="animated" href="{% url  'gallery' %}">Discover</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-area section-padding-1 banner-area-hm11 pt-130 pb-100">
+            <div class="container-fluid padding-70-row-col">
+                <div class="section-title-12 text-center mb-60">
+                    <h2>MotherNature Plants & Nursery</h2>
+                    <p></p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="banner-wrap default-overlay-2 banner-zoom mb-30">
+                            <div class="banner-img">
+                                <a href="{% url 'more' %}"><img src="{% static 'assets/images/banner/fee.png' %}" alt="banner"></a>
+                            </div>
+                            <div class="banner-content-11 text-center">
+                                <h3><a href="{% url  'more' %}">Feeding</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="banner-wrap default-overlay-2 banner-zoom mb-30">
+                            <div class="banner-img">
+                                <a href="{% url  'more' %}"><img src="{% static 'assets/images/banner/li.png' %}" alt="banner"></a>
+                            </div>
+                            <div class="banner-content-11 text-center">
+                                <h3><a href="{% url 'more' %}">Light</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="banner-wrap default-overlay-2 banner-zoom mb-30">
+                            <div class="banner-img">
+                                <a href="{% url 'more' %}"><img src="{% static 'assets/images/banner/caa.png' %}" alt="banner"></a>
+                            </div>
+                            <div class="banner-content-11 text-center">
+                                <h3><a href="{% url  'more' %}">Care</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="choose-area jarallax parallax-img section-padding-1 pt-130 pb-100" style="background-image:url({% static 'assets/images/bg/green1.png' %});">
+            <div class="container-fluid">
+                <div class="section-title-12 title-12-white text-center mb-65">
+                    <h2>Why Choose Us</h2>
+                    <p></p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="single-choose mb-30">
+                            <div class="choose-icon">
+                                <i class="dlicon envir_home"></i>
+                            </div>
+
+                            <div class="choose-content">
+                                <h3>Environmental friendliness</h3>
+                                <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer condimentum sed mi</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <div class="myaccount-table table-responsive text-center"></div>
+
+                             <footer class="footer-area section-padding-1 bg-black-3">
+                                <div class="container-fluid">
+                                    <div class="footer-top pt-100 pb-35">
+                                        <div class="row">
+                                            <div class="footer-column footer-width-24">
+                                                <div class="footer-widget footer-about mb-30">
+
+
+
+                                                </div>
+                                            </div>
+                                            <div class="footer-column footer-width-24-2">
+                                                <div class="footer-widget footer-info-list-2 footer-contect logo-width footer-info-font-inc mb-30">
+                                                    <a href="{% url 'index' %}">
+                                                        <img src="{% static 'assets/images/logo/logo1.png' %}" alt="logo">
+                                                    </a>
+                                                    <ul>
+                                                        <li><i class="dlicon ui-2_time-clock"></i> Monday - Saturday: 9:00 - 19:00</li>
+                                                        <li><i class="dlicon ui-1_email-83"></i> mothernatureconnect@gmail.com</li>
+                                                        <li><i class="dlicon tech-2_rotate"></i> 9427313857</li>
+                                                        <li><i class="dlicon ui-1_home-simple"></i>B3, premkunj society,mirambika <br>school road,naranpura, ahemdabad </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="footer-column footer-width-13">
+                                                <div class="footer-widget footer-info-list mb-30 fi-sky-color">
+                                                    <h3 class="footer-title ft-letter-space-inc">Company</h3>
+                                                    <ul>
+                                                        <li><a href="{% url 'aboutus' %}">About Us</a></li>
+                                                        <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                                                        <li><a href="{% url 'faq' %}">FAQs</a></li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="footer-column footer-width-11">
+                                                <div class="footer-widget footer-info-list mb-30 fi-sky-color">
+                                                    <h3 class="footer-title">Follow Us</h3>
+                                                    <div class="social-icon-style-2 social-icon-hm4">
+                                                        <a class="facebook" href="https://www.facebook.com/mothernatureahmedabad?mibextid=ZbWKwLfacebook"><i class="fa fa-facebook"></i></a>
+                                                        <a class="instagram" href="https://instagram.com/mothernatureahmedabad?igshid=OGQ2MjdiOTE=    insta"><i class="fa fa-instagram"></i></a>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="footer-column footer-width-27 mb-30">
+                                                <div class="instagram-feed-thumb">
+                                                    <div id="instafeed" data-limit="6" class="instagram-wrap-3"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer-botoom">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="copyright-2 copyright-sky text-center">
+                                                    <p>© 2021 <a href="https://hasthemes.com/">MotherNature.</a> All rights reserved.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+
+
+
+
+
+
+
+        <!-- Modal -->
+
+        <!-- Modal end -->
+
+
+    <!-- All JS is here
+============================================ -->
+
+    <!-- Modernizer JS -->
+    <script src="{% static 'assets/js/vendor/modernizr-3.11.7.min.js' %}"></script>
+    <!-- jquery -->
+    <script src="{% static 'assets/js/vendor/jquery-v3.6.0.min.js' %}"></script>
+    <!-- Popper JS -->
+    <script src="{% static 'assets/js/vendor/popper.js' %}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'assets/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/slick.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jarallax.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/countdown.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/magnific-popup.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/instafeed.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/tilt.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/images-loaded.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/scrolloverflow-fullpage.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/fullpage.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery-ui.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/jquery-ui-touch-punch.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/easyzoom.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/resizesensor.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/sticky-sidebar.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/scrollup.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/select2.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/cookie.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/bpopup.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/wow.js' %}"></script>
+    <script src="{% static 'assets/js/plugins/ajax-mail.js' %}"></script>
+    <!-- Main JS -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>
